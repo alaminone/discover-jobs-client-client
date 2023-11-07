@@ -1,7 +1,8 @@
 import { useEffect, useState, useContext } from 'react';
 import axios from 'axios';
 import { AuthContext } from '../../provider/Authprovider';
-import JobsCard from '../homePage/jobListings/JobsCard';
+import JobsCard from '../homePage/jobListings/jobscard/JobsCard';
+
 
 
 const MypostJobs = () => {
@@ -21,11 +22,13 @@ const MypostJobs = () => {
   }, [user]);
 
   return (
-    <div>
+<div className='bg-gray-100 my-10 py-8'>
+<div className='max-w-5xl mx-auto  space-y-4'>
       {userJobs.map((job) => (
         <JobsCard key={job._id} job={job}></JobsCard>
       ))}
     </div>
+</div>
   );
 };
 

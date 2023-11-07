@@ -1,11 +1,12 @@
 import { useState, useEffect } from 'react';
 import { Tab, TabList, TabPanel, Tabs } from 'react-tabs';
 import axios from 'axios';
-import JobsCard from './JobsCard';
+
 
 import 'react-tabs/style/react-tabs.css'; // Import the default styles for react-tabs
 
 import './JobListings.css'; // Import your custom CSS for styling
+import JobsCard from './jobscard/JobsCard';
 
 const JobListings = () => {
   const [jobListings, setJobListings] = useState([]);
@@ -32,9 +33,9 @@ const JobListings = () => {
         </TabList>
 
         <TabPanel>
-          <div className='grid grid-cols-1 md:grid-cols-2 gap-5 '>
+          <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 '>
             {webDevJobs.map((job) => (
-              <JobsCard key={job._id} job={job} />)
+              <JobsCard key={job._id} job={job}></JobsCard>)
             )}
           </div>
         </TabPanel>
