@@ -1,0 +1,17 @@
+/* JobListings.css */
+
+/* Style for the tabs */
+.react-tabs__tab {
+    cursor: pointer;
+    
+    border: 1px solid transparent;
+    transition: transform 0.2s; /* Add a transition for smooth animation */
+  }
+  
+  /* Style for the active tab */
+  .react-tabs__tab--selected {
+    border-color: red;
+    transform: scale(1.1);
+    text-decoration:red 
+  }
+  
