@@ -5,6 +5,8 @@ import Login from "../page/login/Login";
 import Registration from "../page/registration/Registration";
 import AddJobs from "../page/jobs/AddJobs";
 import MypostJobs from "../page/mypostjobs/MypostJobs";
+import UpdateJob from "../page/updatejobs/Updatejobs";
+
 
 const router = createBrowserRouter([
     {
@@ -16,19 +18,24 @@ const router = createBrowserRouter([
                 element:<Home></Home>
             },
             {
-                path:"login",
+                path:"/login",
                 element:<Login></Login>
             },
             {
-                path:"registration",
+                path:"/registration",
                 element:<Registration></Registration>
             },
             {
-                path:"addjobs",
+                path:"/addjobs",
                 element:<AddJobs></AddJobs>
             },
             {
-                path:"mypostjobs",
+                path: "/updatejobs/:id",
+                element: <UpdateJob></UpdateJob>,
+                loader: ({ params }) => fetch(`http://localhost:5001/api/jobs/${params.id}`)
+            },
+            {
+                path:"/mypostjobs",
                 element:<MypostJobs></MypostJobs>
             },
         ]
