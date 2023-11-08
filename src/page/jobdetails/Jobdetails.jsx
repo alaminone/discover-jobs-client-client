@@ -30,6 +30,11 @@ const JobDetails = () => {
     const data = {
       jobId: id,
       userEmail: user.email,
+      jobDetails: {
+        title: jobDetails.title,
+        deadline: jobDetails.deadline,
+        category: jobDetails.category,
+      },
       additionalInfo,
       phoneNumber,
       address,
@@ -38,7 +43,7 @@ const JobDetails = () => {
 
  
          
-          axios.post('http://localhost:5001/api/confirmJob', data)
+          axios.post('http://localhost:5001/api/getConfirmedJobs', data)
             .then((response) => {
               if (response.data.insertedId) {
                 Swal.fire({
