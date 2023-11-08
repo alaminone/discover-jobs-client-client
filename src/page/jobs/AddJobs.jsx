@@ -19,17 +19,16 @@ const AddJobs = () => {
 
   const handleFormSubmit = async (e) => {
     e.preventDefault();
-
     
     const loadingToast = toast.loading('Adding job listing...');
-
+  
     try {
       const email = user ? user.email : 'Guest'; 
       const dataWithUserEmail = { ...formData, email };
       const response = await axios.post('http://localhost:5001/api/jobs', dataWithUserEmail);
-
+  
       if (response.data.success) {
-       
+        
         
         setFormData({
           title: '',
@@ -41,14 +40,14 @@ const AddJobs = () => {
         });
       } else {
         toast.success('Job added successfully!', { id: loadingToast });
-        
       }
     } catch (error) {
-      
       toast.error('An error occurred while adding the job listing', { id: loadingToast });
       console.error(error);
     }
   };
+  
+  
 
   return (
     <div className='flex flex-col-2 gap-4 max-w-6xl mx-auto'>

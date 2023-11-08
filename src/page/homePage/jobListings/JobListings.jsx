@@ -23,7 +23,12 @@ const JobListings = () => {
   const graphicsDesignJobs = jobListings.filter((job) => job.category === 'Graphics Design');
 
   return (
-    <div className=' bg-gray-100 my-16'>
+    <div>
+      <h3 className='text-4xl font-bold text-center mt-9'>
+      Explore Jobs
+      </h3>
+      <div className=' bg-gray-100 my-16'>
+      
       <div className='max-w-6xl mx-auto py-12'>
       <Tabs>
         <TabList className="flex justify-center my-6 gap-2 mx-4 md:gap-5">
@@ -57,6 +62,7 @@ const JobListings = () => {
         </TabPanel>
       </Tabs>
       </div>
+    </div>
     </div>
   );
 };

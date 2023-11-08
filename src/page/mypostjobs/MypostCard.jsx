@@ -45,7 +45,7 @@ const MypostCard = ({ job, onDelete, onUpdate }) => {
 
   return (
     <div
-      className={`card card-side relative transition-transform transform ${
+      className={`card card-side border relative transition-transform transform ${
         hovered ? 'scale-105' : 'scale-100'
       } shadow-xl mx-2`}
       onMouseEnter={handleMouseEnter}
@@ -74,14 +74,14 @@ const MypostCard = ({ job, onDelete, onUpdate }) => {
         </div>
         <div className="absolute bottom-4 space-x-6 right-4">
           <button
-            className="btn bg-red-400 text-white rounded-full py-2 px-4 focus:outline-none"
+            className="btn bg-red-500 text-white  py-2 px-4 focus:outline-none"
             onClick={handleDelete}
           >
             Delete
           </button>
           <Link to={`/updatejobs/${_id}`}>
             <button
-              className="btn bg-green-400 text-white rounded-full py-2 px-4 focus:outline-none"
+              className="btn bg-green-400 text-white  py-2 px-4 focus:outline-none"
               onClick={() => onUpdate(job)}
             >
               Update

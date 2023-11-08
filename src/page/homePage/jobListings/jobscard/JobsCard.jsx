@@ -1,8 +1,9 @@
 import PropTypes from 'prop-types';
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 const JobsCard = ({ job }) => {
-  const { title, deadline, priceRange, description, posterPhotoURL, userPhotoURL } = job;
+  const { _id,title, deadline, priceRange, description, posterPhotoURL, userPhotoURL } = job;
 
   const [hovered, setHovered] = useState(false);
 
@@ -16,13 +17,13 @@ const JobsCard = ({ job }) => {
 
   return (
     <div
-      className={`card card-side relative transition-transform transform ${
+      className={`card border card-side  transition-transform transform ${
         hovered ? 'scale-105' : 'scale-100'
       } shadow-xl mx-2`}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >
-      <figure className="relative">
+      <figure className="">
         {posterPhotoURL && (
           <img src={posterPhotoURL} alt="" className="rounded-t-lg w-full" />
         )}
@@ -41,14 +42,17 @@ const JobsCard = ({ job }) => {
             />
           )}
         </div>
-        <div className="absolute bottom-4 right-4">
+        <div className="">
+          <Link to={`bidinformation/${_id}`}>
           <button
-            className="btn btn-primary rounded-full py-2 px-4 focus:outline-none"
+            className="btn w-full  btn-outline text-red-500 rounded-full py-2 px-4 focus:outline-none"
           >
             Bid Now
           </button>
-        </div>
+          </Link>
       </div>
+        </div>
+       
     </div>
   );
 };
