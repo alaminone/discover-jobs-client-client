@@ -3,8 +3,8 @@
 
 import PropTypes from 'prop-types'
 
-const ApplicationCard = ({job}) => {
-    const {userEmail,phoneNumber,address,bidDate} = job
+const ApplicationCard = ({job ,handleDelete}) => {
+    const {userEmail,phoneNumber,address,bidDate, _id} = job
   return (
     <tr>
             <th>
@@ -19,11 +19,10 @@ const ApplicationCard = ({job}) => {
             {phoneNumber}
             </td>
             <td>{address}</td>
-            <td>bidDate</td>
+            <td>{bidDate}</td>
             <th>
-                {
-                    status === 'confirm' ? <span className="font-bold text-primary">Confirmed</span> :
-                        <button onClick={() => handleBookingConfirm(_id)} className="btn btn-ghost btn-xs">Please Confirm</button>}
+                
+                        <button className="btn bg-red-500 text-white btn-outline  btn-xs">Pending Application</button>
             </th>
         </tr>
   )
@@ -31,6 +30,7 @@ const ApplicationCard = ({job}) => {
 
 ApplicationCard.propTypes = {
     job:PropTypes.object,
+    handleDelete:PropTypes.func,
 }
 
 export default ApplicationCard
