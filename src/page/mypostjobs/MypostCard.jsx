@@ -33,11 +33,11 @@ const MypostCard = ({ job, onDelete, onUpdate }) => {
           const response = await axios.delete(`http://localhost:5001/api/jobs/${_id}`);
           if (response.data.deletedCount > 0) {
             Swal.fire('Deleted!', 'Your job has been deleted.', 'success');
-            onDelete(_id); // Notify the parent component to remove the job
+            onDelete(_id); 
           }
         } catch (error) {
           console.error(error);
-          // Handle error as needed
+        
         }
       }
     });

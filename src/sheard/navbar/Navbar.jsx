@@ -60,7 +60,7 @@ const Navbar = () => {
         }
         to={"/application"}
       >
-        My Application
+        My Bids
       </NavLink>
     </li>
       :
