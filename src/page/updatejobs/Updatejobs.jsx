@@ -26,7 +26,7 @@ const UpdateJob = ({ onUpdate }) => {
       if (response.data.success) {
         onUpdate(job._id, formData);
         if (response.data.modifiedCount) {
-            await Swal.fire({  // Add 'await' here
+            await Swal.fire({  
                 title: 'Error',
                 text: 'Failed to update job',
                 icon: 'error',
@@ -34,7 +34,7 @@ const UpdateJob = ({ onUpdate }) => {
         } 
       }
     } catch (error) {
-        await Swal.fire({  // Add 'await' here
+        await Swal.fire({ 
             title: 'Success!',
             text: 'Job has been updated',
             icon: 'success',

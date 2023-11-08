@@ -43,7 +43,7 @@ const JobsCard = ({ job }) => {
           )}
         </div>
         <div className="">
-          <Link to={`bidinformation/${_id}`}>
+          <Link to={`/jobdetails/${_id}`}>
           <button
             className="btn w-full  btn-outline text-red-500 rounded-full py-2 px-4 focus:outline-none"
           >
