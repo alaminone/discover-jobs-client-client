@@ -37,16 +37,6 @@ const JobDetails = () => {
     };
 
  
-    // axios.post('http://localhost:5001/api/checkBid', data)
-    //   .then((response) => {
-    //     if (response.data.alreadyBid) {
-          
-    //       Swal.fire({
-    //         title: 'Error',
-    //         text: 'You have already bid on this job.',
-    //         icon: 'error',
-    //       });
-    //     } else {
          
           axios.post('http://localhost:5001/api/confirmJob', data)
             .then((response) => {
@@ -75,15 +65,7 @@ const JobDetails = () => {
               });
             });
         
-    //   })
-    //   .catch((error) => {
-    //     console.error(error);
-    //     Swal.fire({
-    //       title: 'Error',
-    //       text: 'An error occurred while checking the bid. Please try again later.',
-    //       icon: 'error',
-    //     });
-    //   });
+   
   };
 
   return (

@@ -3,9 +3,9 @@ import { Tab, TabList, TabPanel, Tabs } from 'react-tabs';
 import axios from 'axios';
 
 
-import 'react-tabs/style/react-tabs.css'; // Import the default styles for react-tabs
+import 'react-tabs/style/react-tabs.css'; 
 
-import './JobListings.css'; // Import your custom CSS for styling
+import './JobListings.css';
 import JobsCard from './jobscard/JobsCard';
 
 const JobListings = () => {

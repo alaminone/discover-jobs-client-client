@@ -20,7 +20,6 @@ const MypostJobs = () => {
     }
   }, [user]);
 
-  // Define a function to update the userJobs state when a job is deleted
   const handleJobDelete = (jobId) => {
     const updatedJobs = userJobs.filter((job) => job._id !== jobId);
     setUserJobs(updatedJobs);
