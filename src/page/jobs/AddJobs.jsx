@@ -30,7 +30,7 @@ const AddJobs = () => {
 
       if (response.data.success) {
        
-        // Clear the form
+        
         setFormData({
           title: '',
           deadline: '',
@@ -40,7 +40,8 @@ const AddJobs = () => {
           maxPrice: '',
         });
       } else {
-        toast.success('Job listing added successfully!', { id: loadingToast });
+        toast.success('Job added successfully!', { id: loadingToast });
+        
       }
     } catch (error) {
       
