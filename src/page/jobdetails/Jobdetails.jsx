@@ -37,16 +37,16 @@ const JobDetails = () => {
     };
 
  
-    axios.post('http://localhost:5001/api/checkBid', data)
-      .then((response) => {
-        if (response.data.alreadyBid) {
+    // axios.post('http://localhost:5001/api/checkBid', data)
+    //   .then((response) => {
+    //     if (response.data.alreadyBid) {
           
-          Swal.fire({
-            title: 'Error',
-            text: 'You have already bid on this job.',
-            icon: 'error',
-          });
-        } else {
+    //       Swal.fire({
+    //         title: 'Error',
+    //         text: 'You have already bid on this job.',
+    //         icon: 'error',
+    //       });
+    //     } else {
          
           axios.post('http://localhost:5001/api/confirmJob', data)
             .then((response) => {
@@ -74,20 +74,20 @@ const JobDetails = () => {
                 icon: 'error',
               });
             });
-        }
-      })
-      .catch((error) => {
-        console.error(error);
-        Swal.fire({
-          title: 'Error',
-          text: 'An error occurred while checking the bid. Please try again later.',
-          icon: 'error',
-        });
-      });
+        
+    //   })
+    //   .catch((error) => {
+    //     console.error(error);
+    //     Swal.fire({
+    //       title: 'Error',
+    //       text: 'An error occurred while checking the bid. Please try again later.',
+    //       icon: 'error',
+    //     });
+    //   });
   };
 
   return (
-    <div className="p-4">
+    <div className="p-4 max-w-4xl mx-auto">
       <h2 className="text-2xl font-bold mb-4">{jobDetails.title}</h2>
       <p className="text-gray-600 mb-4">{jobDetails.description}</p>
 

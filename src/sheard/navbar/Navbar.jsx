@@ -1,9 +1,10 @@
 import { useContext } from 'react';
 import { Link, NavLink } from 'react-router-dom';
-import logo from "../../assets/logo/logo2.png"
+
 import { AuthContext } from '../../provider/Authprovider';
 
 const Navbar = () => {
+  const { user, logout } = useContext(AuthContext);
   const navlink = <>
   <li>
       <NavLink
@@ -47,12 +48,30 @@ const Navbar = () => {
         My Posts Jobs
       </NavLink>
     </li>
+    {
+      user?.email?   <li>
+      <NavLink
+        className={({ isActive, isPending }) =>
+          isPending
+            ? "pending text-red-400 "
+            : isActive
+            ? "font-semibold border-b-2 border-red-400 "
+            : ""
+        }
+        to={"/application"}
+      >
+        My Application
+      </NavLink>
+    </li>
+      :
+      ""
+    }
   </>
     
     
 
 
-  const { user, logout } = useContext(AuthContext);
+  
 
   const handellogout = () =>{
     logout()
@@ -117,7 +136,7 @@ const Navbar = () => {
               {navlink}
             </ul>
           </div>
-          <img className="w-12 h-10" src={logo} alt="" />
+          <img className="w-12 h-10" src={'https://i.ibb.co/J7hXsZY/logo2.png'} alt="" />
           <h3 className="text-3xl font-bold text-white">Discover Jobs</h3>
         </div>
         <div>

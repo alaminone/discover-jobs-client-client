@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 
 const Banner = () => {
-    const banner1 = "https://i.ibb.co/SfhgPXb/2.png";
+    const banner1 = "https://i.ibb.co/0m3g82X/annie-spratt-Qckxruozj-Rg-unsplash.jpg";
     const banner2 = "https://i.ibb.co/8DpmDnH/ales-nesetril-Im7l-Zjxe-Lhg-unsplash.jpg";
     const banner3 = "https://i.ibb.co/z58QVVG/maxim-hopman-Hin-rzh-Od-Ws-unsplash.jpg";
     const banners = [banner1, banner2, banner3];

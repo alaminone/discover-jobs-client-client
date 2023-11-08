@@ -5,7 +5,7 @@ const Footer = () => {
         <div className=" bg-gradient-to-r from-red-400 to-gray-300">
             <footer className="footer p-10 max-w-6xl mx-auto text-white">
                 <nav>
-                    <img className="w-20 h-16" src={logo} alt="" />
+                    <img className="w-20 h-16" src={'https://i.ibb.co/J7hXsZY/logo2.png'} alt="" />
                     <h3 className="text-3xl font-bold text-white">Discover Jobs</h3>
                 </nav>
   <nav>
@@ -32,7 +32,7 @@ const Footer = () => {
     <div>
     <p>Copyright © 2023 - All right reserved</p>
     <div className="flex gap-2">
-    <img className="w-10 h-8" src={logo} alt="" />
+    <img className="w-10 h-8" src={'https://i.ibb.co/J7hXsZY/logo2.png'} alt="" />
                     <h3 className="text-3xl font-bold text-white">Discover Jobs</h3>
     </div>
     </div>
