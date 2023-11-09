@@ -9,9 +9,12 @@ import { Toaster } from 'react-hot-toast'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <AuthProvider>
+  
+     <AuthProvider>
       <RouterProvider router={router} />
     </AuthProvider>
+    
+    
     <Toaster />
   </React.StrictMode>,
 )

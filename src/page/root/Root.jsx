@@ -9,9 +9,13 @@ import Footer from "../../sheard/footer/Footer";
 const Root = () => {
     return (
         <div>
-            <Navbar></Navbar>
+          
+
+             <Navbar></Navbar>
             <Outlet></Outlet>
             <Footer></Footer>
+            
+           
         </div>
     );
 };

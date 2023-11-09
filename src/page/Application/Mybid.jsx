@@ -6,6 +6,7 @@ import BidCard from "./BidCard";
 
 
 const Mybid = () => {
+
   const { user } = useContext(AuthContext);
   const [confirmedJobs, setConfirmedJobs] = useState([]);
 
@@ -38,32 +39,38 @@ const Mybid = () => {
   
 
   return (
-    <div className="max-w-5xl mx-auto my-10">
-      <h2 className="text-3xl text-center my-5">Your All Application</h2>
-      <div className="overflow-x-auto w-full">
-        <table className="table w-full">
-          <thead className="bg-red-300 text-white">
-            <tr>
-              
-              <th>Email</th>
-              <th>phoneNumber</th>
-              <th>address</th>
-              <th>bidDate</th>
-              <th>Status</th>
-              <th>Actions</th>
-            </tr>
-          </thead>
-          <tbody>
-            {confirmedJobs.map((job) => (
-             <BidCard  key={job._id}
-             job={job}
-            
-             ></BidCard>
-            ))}
-          </tbody>
-        </table>
-      </div>
-    </div>
+   
+ <div className="max-w-5xl mx-auto my-10">
+
+
+<h2 className="text-3xl text-center my-5">Your All Application</h2>
+<div className="overflow-x-auto w-full">
+  <table className="table w-full">
+    <thead className="bg-red-300 text-white">
+      <tr>
+        
+        <th>Email</th>
+        <th>phoneNumber</th>
+        <th>address</th>
+        <th>bidDate</th>
+        <th>Status</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      {confirmedJobs.map((job) => (
+       <BidCard  key={job._id}
+       job={job}
+      
+       ></BidCard>
+      ))}
+    </tbody>
+  </table>
+</div>
+
+</div>
+    
+   
   );
 };
 
