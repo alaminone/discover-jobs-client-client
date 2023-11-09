@@ -49,7 +49,8 @@ const Navbar = () => {
       </NavLink>
     </li>
     {
-      user?.email?   <li>
+      user?.email?  <>
+       <li>
       <NavLink
         className={({ isActive, isPending }) =>
           isPending
@@ -58,11 +59,28 @@ const Navbar = () => {
             ? "font-semibold border-b-2 border-red-400 "
             : ""
         }
-        to={"/application"}
+        to={"/mybits"}
       >
         My Bids
       </NavLink>
     </li>
+    <li>
+      <NavLink
+        className={({ isActive, isPending }) =>
+          isPending
+            ? "pending text-red-400 "
+            : isActive
+            ? "font-semibold border-b-2 border-red-400 "
+            : ""
+        }
+        to={"/bidrequst"}
+      >
+      Bids Requst
+      </NavLink>
+    </li>
+      
+      </>
+    
       :
       ""
     }

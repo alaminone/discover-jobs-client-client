@@ -3,13 +3,11 @@
 
 import PropTypes from 'prop-types'
 
-const ApplicationCard = ({job ,}) => {
+const BidCard = ({job ,}) => {
     const {userEmail,phoneNumber,address,bidDate, } = job
   return (
     <tr>
-            <th>
-                
-            </th>
+            
             <td>
             {userEmail}
             </td>
@@ -26,9 +24,9 @@ const ApplicationCard = ({job ,}) => {
   )
 }
 
-ApplicationCard.propTypes = {
+BidCard.propTypes = {
     job:PropTypes.object,
     handleDelete:PropTypes.func,
 }
 
-export default ApplicationCard
+export default BidCard
