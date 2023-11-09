@@ -11,7 +11,7 @@ const BidRequests = () => {
     // Define a function to fetch bid requests using Axios
     const fetchBidRequests = async () => {
       try {
-        const response = await axios.get('https://discover-jobs-9w9at6n98-alamins-projects-be4aa773.vercel.app/api/bidRequests');
+        const response = await axios.get('https://discover-jobs-giakqguz3-alamins-projects-be4aa773.vercel.app/api/bidRequests');
         setBidRequests(response.data);
       } catch (error) {
         console.error('Axios error:', error);
@@ -26,7 +26,7 @@ const BidRequests = () => {
   const handleAccept = async (bidId) => {
     // Make an API call to update the status to 'Accepted' using Axios
     try {
-      await axios.post(`https://discover-jobs-9w9at6n98-alamins-projects-be4aa773.vercel.app/api/acceptBid/${bidId}`, {
+      await axios.post(`https://discover-jobs-giakqguz3-alamins-projects-be4aa773.vercel.app/api/acceptBid/${bidId}`, {
         status: 'Accepted',
       });
 
@@ -46,7 +46,7 @@ const BidRequests = () => {
   const handleReject = async (bidId) => {
     // Make an API call to update the status to 'Rejected' using Axios
     try {
-      await axios.post(`https://discover-jobs-9w9at6n98-alamins-projects-be4aa773.vercel.app/api/rejectBid/${bidId}`, {
+      await axios.post(`https://discover-jobs-giakqguz3-alamins-projects-be4aa773.vercel.app/api/rejectBid/${bidId}`, {
         status: 'Rejected',
       });
 

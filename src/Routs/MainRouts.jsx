@@ -37,7 +37,7 @@ const router = createBrowserRouter([
             {
                 path: "/updatejobs/:id",
                 element: <PrivateRoute><UpdateJob></UpdateJob></PrivateRoute>,
-                loader: ({ params }) => fetch(`https://discover-jobs-9w9at6n98-alamins-projects-be4aa773.vercel.app/api/jobs/${params.id}`)
+                loader: ({ params }) => fetch(`https://discover-jobs-giakqguz3-alamins-projects-be4aa773.vercel.app/api/jobs/${params.id}`)
             },
             {
                 path:"/mypostjobs",

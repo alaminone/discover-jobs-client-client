@@ -10,7 +10,7 @@ const BidCard = ({ job }) => {
 
   const handlebidConfirm = () => {
     axios
-      .post('https://discover-jobs-9w9at6n98-alamins-projects-be4aa773.vercel.app/api/bidRequests', {
+      .post('https://discover-jobs-giakqguz3-alamins-projects-be4aa773.vercel.app/api/bidRequests', {
         jobId: _id,
         bidDate: bidDate,
         userEmail: userEmail,

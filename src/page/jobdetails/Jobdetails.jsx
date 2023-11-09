@@ -17,7 +17,7 @@ const JobDetails = () => {
 
   useEffect(() => {
     axios
-      .get(`https://discover-jobs-9w9at6n98-alamins-projects-be4aa773.vercel.app/api/jobs/${id}`)
+      .get(`https://discover-jobs-giakqguz3-alamins-projects-be4aa773.vercel.app/api/jobs/${id}`)
       .then((response) => {
         setJobDetails(response.data);
       })
@@ -43,7 +43,7 @@ const JobDetails = () => {
 
  
          
-          axios.post('https://discover-jobs-9w9at6n98-alamins-projects-be4aa773.vercel.app/api/getConfirmedJobs', data)
+          axios.post('https://discover-jobs-giakqguz3-alamins-projects-be4aa773.vercel.app/api/getConfirmedJobs', data)
             .then((response) => {
               if (response.data.insertedId) {
                 Swal.fire({

@@ -10,7 +10,7 @@ const MypostJobs = () => {
   useEffect(() => {
     if (user) {
       axios
-        .get(`https://discover-jobs-9w9at6n98-alamins-projects-be4aa773.vercel.app/api/myjobs?userEmail=${user.email}`)
+        .get(`https://discover-jobs-giakqguz3-alamins-projects-be4aa773.vercel.app/api/myjobs?userEmail=${user.email}`)
         .then((response) => {
           setUserJobs(response.data);
         })

@@ -25,7 +25,7 @@ const AddJobs = () => {
     try {
       const email = user ? user.email : 'Guest'; 
       const dataWithUserEmail = { ...formData, email };
-      const response = await axios.post('https://discover-jobs-9w9at6n98-alamins-projects-be4aa773.vercel.app/api/jobs', dataWithUserEmail);
+      const response = await axios.post('https://discover-jobs-giakqguz3-alamins-projects-be4aa773.vercel.app/api/jobs', dataWithUserEmail);
   
       if (response.data.success) {
         

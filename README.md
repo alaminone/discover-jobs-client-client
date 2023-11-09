@@ -1,8 +1,9 @@
-# React + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-Currently, two official plugins are available:
+https://654d0cadc47b770f910c3e47--boisterous-speculoos-046bf3.netlify.app/
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- Job Listings: Your application allows users to create and manage job listings. Users can post new job opportunities, update job details, and delete job listings.
+- Bid Processing: The system handles bid processing, where users can submit bids for specific job listings. Bids are tracked, and users can confirm or reject bids.
+- User Management: The application supports user management, allowing users to register and log in. Users can access job listings and bid processing functionality while being associated with their posted jobs and bids.
+-Bid Requests: Users can request bids for specific jobs. These bid requests are tracked as pending applications until they are confirmed or rejected.
+- Bid Requests: Users can request bids for specific jobs. These bid requests are tracked as pending applications until they are confirmed or rejected.
