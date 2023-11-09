@@ -1,4 +1,4 @@
-// Application.js
+
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../provider/Authprovider";
 
@@ -29,51 +29,28 @@ const Mybid = () => {
     }
   }, [user]);
 
-  const handleAccept = (jobId) => {
-    
-    const url = `http://localhost:5001/api/updateJobStatus/${jobId}`;
-    const data = { status: "Accepted" };
-  
-    fetch(url, {
-      method: "POST",
+ 
+  const handlebidConfirm = (id) => {
+    fetch(`http://localhost:5001/api/bidRequests/${id}`, {
+      method: 'POST',
       headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(data),
+        'content-type': 'application/json'
+    }, 
+    body: JSON.stringify(confirmedJobs)
     })
       .then((response) => {
         if (!response.ok) {
-          throw new Error("Network response was not ok");
+          throw new Error('Network response was not ok');
         }
         
       })
       .catch((error) => {
-        console.error("Fetch error:", error);
+        console.error('Fetch error:', error);
       });
   };
   
-  const handleReject = (jobId) => {
-    // Send a POST request to update the job status to "Rejected"
-    const url = `http://localhost:5001/api/updateJobStatus/${jobId}`;
-    const data = { status: "Rejected" };
-  
-    fetch(url, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(data),
-    })
-      .then((response) => {
-        if (!response.ok) {
-          throw Error("Network response was not ok");
-        }
-        // Handle the response as needed
-      })
-      .catch((error) => {
-        console.error("Fetch error:", error);
-      });
-  };
+
+ 
   
 
   return (
@@ -96,8 +73,8 @@ const Mybid = () => {
             {confirmedJobs.map((job) => (
              <BidCard  key={job._id}
              job={job}
-             handleAccept={handleAccept}
-             handleReject={handleReject}></BidCard>
+             handlebidConfirm={handlebidConfirm}
+             ></BidCard>
             ))}
           </tbody>
         </table>

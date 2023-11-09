@@ -3,8 +3,8 @@
 
 import PropTypes from 'prop-types'
 
-const BidCard = ({job ,}) => {
-    const {userEmail,phoneNumber,address,bidDate, } = job
+const BidCard = ({job ,handlebidConfirm}) => {
+    const {userEmail,phoneNumber,address,bidDate,_id} = job
   return (
     <tr>
             
@@ -16,6 +16,9 @@ const BidCard = ({job ,}) => {
             </td>
             <td>{address}</td>
             <td>{bidDate}</td>
+            <td>  {
+                    status === 'confirm' ? <span className="font-bold text-primary">Confirmed</span> :
+                        <button onClick={() => handlebidConfirm(_id)} className="btn btn-ghost btn-xs">Please Confirm</button>}</td>
             <th>
                 
                         <button className="btn bg-red-500 text-white btn-outline  btn-xs">Pending Application</button>
@@ -26,7 +29,7 @@ const BidCard = ({job ,}) => {
 
 BidCard.propTypes = {
     job:PropTypes.object,
-    handleDelete:PropTypes.func,
+    handlebidConfirm:PropTypes.func,
 }
 
 export default BidCard
