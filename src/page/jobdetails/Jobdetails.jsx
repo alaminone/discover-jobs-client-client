@@ -7,7 +7,7 @@ import { AuthContext } from '../../provider/Authprovider';
 const JobDetails = () => {
   const { id } = useParams();
   const { user } = useContext(AuthContext);
-  const [jobDetails, setJobDetails] = useState({});
+  const [jobDetails, setJobDetails] = useState([]);
   const navigate = useNavigate();
 
   const [additionalInfo, setAdditionalInfo] = useState('');

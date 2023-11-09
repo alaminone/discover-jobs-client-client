@@ -1,91 +1,66 @@
 import { useContext, useEffect, useState } from 'react';
 import BidrequestCard from './BidrequestCard';
 import { AuthContext } from '../../provider/Authprovider';
+import axios from 'axios';
 
 const BidRequests = () => {
   const { user } = useContext(AuthContext);
   const [bidRequests, setBidRequests] = useState([]);
 
-  console.log(bidRequests);
-
   useEffect(() => {
-    if (user && user.email) {
-      fetch(`http://localhost:5001/api/bidRequests`)
-        .then((response) => {
-          if (!response.ok) {
-            throw new Error('Network response was not ok');
-          }
-          return response.json();
-        })
-        .then((data) => {
-          setBidRequests(data);
-        })
-        .catch((error) => {
-          console.error('Fetch error:', error);
-        });
+    // Define a function to fetch bid requests using Axios
+    const fetchBidRequests = async () => {
+      try {
+        const response = await axios.get('http://localhost:5001/api/bidRequests');
+        setBidRequests(response.data);
+      } catch (error) {
+        console.error('Axios error:', error);
+      }
+    };
+
+    if (user) {
+      fetchBidRequests();
     }
   }, [user]);
 
-  const handleAccept = (bidId) => {
-    const updatedBidRequests = bidRequests.map((bid) => {
-      if (bid._id === bidId) {
-        return { ...bid, status: 'Accepted' };
-      }
-      return bid;
-    });
-    setBidRequests(updatedBidRequests);
-
-    
-    const url = `http://localhost:5001/api/acceptBid/${bidId}`;
-    const data = { status: 'Accepted' };
-
-    fetch(url, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(data),
-    })
-      .then((response) => {
-        if (!response.ok) {
-          throw new Error('Network response was not ok');
-        }
-        
-      })
-      .catch((error) => {
-        console.error('Fetch error:', error);
+  const handleAccept = async (bidId) => {
+    // Make an API call to update the status to 'Accepted' using Axios
+    try {
+      await axios.post(`http://localhost:5001/api/acceptBid/${bidId}`, {
+        status: 'Accepted',
       });
+
+      // Update the status in the UI
+      const updatedBidRequests = bidRequests.map((bid) => {
+        if (bid._id === bidId) {
+          return { ...bid, status: 'Accepted' };
+        }
+        return bid;
+      });
+      setBidRequests(updatedBidRequests);
+    } catch (error) {
+      console.error('Axios error:', error);
+    }
   };
 
-  const handleReject = (bidId) => {
-  
-    const updatedBidRequests = bidRequests.map((bid) => {
-      if (bid._id === bidId) {
-        return { ...bid, status: 'Rejected' };
-      }
-      return bid;
-    });
-    setBidRequests(updatedBidRequests);
-
-    const url = `http://localhost:5001/api/rejectBid/${bidId}`;
-    const data = { status: 'Rejected' };
-
-    fetch(url, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(data),
-    })
-      .then((response) => {
-        if (!response.ok) {
-          throw  Error('Network response was not ok');
-        }
-        
-      })
-      .catch((error) => {
-        console.error('Fetch error:', error);
+  const handleReject = async (bidId) => {
+    // Make an API call to update the status to 'Rejected' using Axios
+    try {
+      await axios.post(`http://localhost:5001/api/rejectBid/${bidId}`, {
+        status: 'Rejected',
       });
+
+      // Update the status in the UI
+      const updatedBidRequests = bidRequests.map((bid) => {
+        if (bid._id === bidId) {
+          return { ...bid, status: 'Rejected' };
+        }
+        return bid;
+      });
+      setBidRequests(updatedBidRequests);
+    } catch (error) {
+      console.error('Axios error:', error);
+    }
   };
 
   return (

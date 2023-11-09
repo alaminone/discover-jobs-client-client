@@ -1,6 +1,4 @@
 
-
-
 import axios from 'axios';
 import PropTypes from 'prop-types'
 import Swal from 'sweetalert2';
@@ -14,6 +12,7 @@ const BidCard = ({job}) => {
         .post('http://localhost:5001/api/bidRequests', {
   
          jobId:_id, 
+         bidDate:bidDate,
         userEmail:userEmail,
         additionalInfo: additionalInfo, 
         phoneNumber:phoneNumber,
