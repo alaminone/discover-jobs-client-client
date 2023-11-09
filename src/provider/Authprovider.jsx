@@ -51,6 +51,8 @@ import { auth } from '../Routs/firebase/Firebase.config';
       const unSubscribe = onAuthStateChanged(auth, (currentUser) => {
         setUser(currentUser);
         setIsLoading(false);
+
+        
       });
   
       return () => {
