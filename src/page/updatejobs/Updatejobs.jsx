@@ -20,7 +20,7 @@ const UpdateJob = ({ onUpdate }) => {
 
   const handleUpdate = async () => {
     try {
-      const response = await axios.put(`http://localhost:5001/api/jobs/${job._id}`, formData);
+      const response = await axios.put(`https://discover-jobs-9w9at6n98-alamins-projects-be4aa773.vercel.app/api/jobs/${job._id}`, formData);
       console.log(response);
   
       if (response.data.success) {

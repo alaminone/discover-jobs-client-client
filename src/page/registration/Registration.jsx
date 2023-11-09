@@ -28,7 +28,7 @@ const Registration = () => {
 
     try {
        
-        const response = await axios.post('http://localhost:5001/api/saveuser', registrationData);
+        const response = await axios.post('https://discover-jobs-9w9at6n98-alamins-projects-be4aa773.vercel.app/api/saveuser', registrationData);
     
         if (response.data.success) {
           toast.success('User Created in MongoDB', { id: toastId });

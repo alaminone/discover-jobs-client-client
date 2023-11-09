@@ -12,7 +12,7 @@ const JobListings = () => {
   const [jobListings, setJobListings] = useState([]);
 
   useEffect(() => {
-    axios.get('http://localhost:5001/api/jobs').then((response) => {
+    axios.get('https://discover-jobs-9w9at6n98-alamins-projects-be4aa773.vercel.app/api/jobs').then((response) => {
       setJobListings(response.data);
     });
   }, []);

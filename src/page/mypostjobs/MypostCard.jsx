@@ -30,7 +30,7 @@ const MypostCard = ({ job, onDelete, onUpdate }) => {
     }).then(async (result) => {
       if (result.isConfirmed) {
         try {
-          const response = await axios.delete(`http://localhost:5001/api/jobs/${_id}`);
+          const response = await axios.delete(`https://discover-jobs-9w9at6n98-alamins-projects-be4aa773.vercel.app/api/jobs/${_id}`);
           if (response.data.deletedCount > 0) {
             Swal.fire('Deleted!', 'Your job has been deleted.', 'success');
             onDelete(_id); 

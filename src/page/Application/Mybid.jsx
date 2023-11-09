@@ -13,7 +13,7 @@ const Mybid = () => {
 
   useEffect(() => {
     if (user && user.email) {
-      const url = `http://localhost:5001/api/getConfirmedJobs?email=${user.email}`;
+      const url = `https://discover-jobs-9w9at6n98-alamins-projects-be4aa773.vercel.app/api/getConfirmedJobs?email=${user.email}`;
 
       fetch(url)
         .then((response) => {
