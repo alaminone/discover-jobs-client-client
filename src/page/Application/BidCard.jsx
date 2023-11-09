@@ -1,10 +1,75 @@
 
 
 
+import axios from 'axios';
 import PropTypes from 'prop-types'
+import Swal from 'sweetalert2';
 
-const BidCard = ({job ,handlebidConfirm}) => {
-    const {userEmail,phoneNumber,address,bidDate,_id} = job
+const BidCard = ({job}) => {
+    const {userEmail,phoneNumber,address,bidDate,_id,additionalInfo,jobRelatedInfo} = job;
+
+
+    const handlebidConfirm = (job) => {
+      axios
+        .post('http://localhost:5001/api/bidRequests', {
+  
+         jobId:_id, 
+        userEmail:userEmail,
+        additionalInfo: additionalInfo, 
+        phoneNumber:phoneNumber,
+        address: address,
+        jobRelatedInfo:jobRelatedInfo,
+         
+        })
+       
+        .then((response) => {
+          
+          if (response.status === 200) {
+          
+            const swalWithBootstrapButtons = Swal.mixin({
+              customClass: {
+                confirmButton: "btn btn-success",
+                cancelButton: "btn btn-danger"
+              },
+              buttonsStyling: false
+            });
+            swalWithBootstrapButtons.fire({
+              title: "Are you sure?",
+            
+              icon: "warning",
+              showCancelButton: true,
+              confirmButtonText: "Apply",
+              cancelButtonText: "cancel!",
+              reverseButtons: true
+            }).then((result) => {
+              if (result.isConfirmed) {
+                swalWithBootstrapButtons.fire({
+                  title: "Thank you",
+                  
+                  icon: "success"
+                });
+              } else if (
+
+                result.dismiss === Swal.DismissReason.cancel
+              ) {
+                swalWithBootstrapButtons.fire({
+                  title: "Cancelled",
+                  text: "Your Applycation cancel!!!",
+                  icon: "error"
+                });
+              }
+            });
+          } else {
+          
+            console.error('Bid request was not submitted successfully');
+          }
+        })
+        .catch((error) => {
+          console.error('Axios error:', error);
+        });
+        console.log(job)
+    };
+
   return (
     <tr>
             
@@ -29,7 +94,7 @@ const BidCard = ({job ,handlebidConfirm}) => {
 
 BidCard.propTypes = {
     job:PropTypes.object,
-    handlebidConfirm:PropTypes.func,
+    
 }
 
 export default BidCard

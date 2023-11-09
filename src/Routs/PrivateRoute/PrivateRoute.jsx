@@ -9,7 +9,10 @@ const PrivateRoute = ({ children }) => {
   const { isLoading, user } = useContext(AuthContext)
 
   if (isLoading) {
-    return <div className="progress w-full"></div>;
+    return <div className='flex justify-center items-center my-28'>
+      <span className="loading loading-bars loading-lg"></span>
+    </div>
+    ;
   }
 
   if (!isLoading && !user?.email) {

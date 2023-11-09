@@ -4,6 +4,7 @@ import { AuthContext } from "../../provider/Authprovider";
 
 import BidCard from "./BidCard";
 
+
 const Mybid = () => {
   const { user } = useContext(AuthContext);
   const [confirmedJobs, setConfirmedJobs] = useState([]);
@@ -30,24 +31,7 @@ const Mybid = () => {
   }, [user]);
 
  
-  const handlebidConfirm = (id) => {
-    fetch(`http://localhost:5001/api/bidRequests/${id}`, {
-      method: 'POST',
-      headers: {
-        'content-type': 'application/json'
-    }, 
-    body: JSON.stringify(confirmedJobs)
-    })
-      .then((response) => {
-        if (!response.ok) {
-          throw new Error('Network response was not ok');
-        }
-        
-      })
-      .catch((error) => {
-        console.error('Fetch error:', error);
-      });
-  };
+  
   
 
  
@@ -73,7 +57,7 @@ const Mybid = () => {
             {confirmedJobs.map((job) => (
              <BidCard  key={job._id}
              job={job}
-             handlebidConfirm={handlebidConfirm}
+            
              ></BidCard>
             ))}
           </tbody>
